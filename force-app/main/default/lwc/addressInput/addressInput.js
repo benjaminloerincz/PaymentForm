@@ -14,7 +14,7 @@ export default class AddressInput extends LightningElement {
         }
     }
     @api
-    stateOptions;
+    stateoptions;
     @api
     validity;
     @api

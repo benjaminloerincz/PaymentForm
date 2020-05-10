@@ -203,20 +203,20 @@ export default class CardInput extends LightningElement {
     };
 
     despatchCompleteEvent(cardData) {
-        const changeEvent = new CustomEvent('cardComplete', {
+        const changeEvent = new CustomEvent('cardcomplete', {
             detail: cardData
         });
         this.dispatchEvent(changeEvent);
     }
 
     despatchIncompleteEvent() {
-        const changeEvent = new CustomEvent('cardIncomplete', { detail: {} });
+        const changeEvent = new CustomEvent('cardincomplete', { detail: {} });
         this.dispatchEvent(changeEvent);
     }
 
     handlePaymentMethodChange(event) {
         const selectedMethod = event.detail.value;
-        const changeEvent = new CustomEvent('paymentMethodChange', {
+        const changeEvent = new CustomEvent('paymentmethodchange', {
             detail: { paymentMethod: selectedMethod }
         });
         this.dispatchEvent(changeEvent);

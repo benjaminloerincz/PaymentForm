@@ -3,7 +3,7 @@ import { LightningElement, api, track } from 'lwc';
 export default class PaymentForm extends LightningElement {
     @api recordId;
 
-    @track showSpinner = false;
+    @track showSpinnerLoading = false;
     @track cardValid = false;
     @track formValid = false;
     @track addressValid = false;
@@ -40,17 +40,18 @@ export default class PaymentForm extends LightningElement {
     @track paymentMethod = 'Credit Card';
     @track checkNumber = '';
     @track poNumber = '';
-    @track stateOptions = [];
+    stateoptions = [];
     @track countryOptions = [];
 
     connectedCallback() {
         this.disableHandlers = true;
         this.showSpinner('loading');
-        this.getContext();
+        // this.getContext();
         this.loadStateOptions();
         this.loadCountryOptions();
-        this.initializeOrderData();
+        // this.initializeOrderData();
         this.disableHandlers = false;
+        this.hideSpinner();
     }
 
     onRender() {
@@ -72,6 +73,10 @@ export default class PaymentForm extends LightningElement {
     handlePreviousClick() {
         this.saveContext();
         // component.getEvent('wizardBack').fire();
+    }
+
+    handlePaymentMethodSelect(event) {
+        this.paymentMethod = event.target.value;
     }
 
     handlePaymentMethodChange() {
@@ -131,18 +136,18 @@ export default class PaymentForm extends LightningElement {
         var val = event.target.value;
 
         if (!val) {
-            document
-                .getElementById('purchaseOrderError')
+            this.template
+                .querySelectorAll('.purchaseOrderError')[0]
                 .classList.remove('slds-hide');
-            document
-                .getElementById('purchaseOrderForm')
+            this.template
+                .querySelectorAll('.purchaseOrderForm')[0]
                 .classList.add('slds-has-error');
         } else {
-            document
-                .getElementById('purchaseOrderError')
+            this.template
+                .querySelectorAll('.purchaseOrderError')[0]
                 .classList.add('slds-hide');
-            document
-                .getElementById('purchaseOrderForm')
+            this.template
+                .querySelectorAll('.purchaseOrderForm')[0]
                 .classList.remove('slds-has-error');
         }
         this.poNumber = val;
@@ -183,7 +188,7 @@ export default class PaymentForm extends LightningElement {
         let cardValid = this.cardValid;
         let paymentValid = false;
 
-        if (paymentMethod == 'Check') {
+        if (paymentMethod === 'Check') {
             let checkNumber = this.checkNumber;
             if (Array.isArray(checkNumber) && checkNumber.length) {
                 paymentValid = true;
@@ -207,11 +212,11 @@ export default class PaymentForm extends LightningElement {
         let spinnerClassIsEmpty =
             Array.isArray(spinnerClass) && spinnerClass.length;
         this.spinnerClass = spinnerClassIsEmpty ? 'loading' : spinnerClass;
-        this.showSpinner = true;
+        this.showSpinnerLoading = true;
     }
 
     hideSpinner() {
-        this.showSpinner = false;
+        this.showSpinnerLoading = false;
     }
 
     loadStateOptions() {

@@ -12,6 +12,7 @@
                             type="button"
                             variant="label-inline"
                             class="slds-form-element slds-form-element_horizontal slds-form-element_1-col"
+                            onchange={handlePaymentMethodSelect}
                         ></lightning-radio-group>
 
                         <template if:true={paymentMethodEqualsCheck}>
@@ -110,7 +111,7 @@
                         onaddressvalid={handleAddressValid}
                         onaddressinvalid={handleAddressInvalid}
                         address={newAccount}
-                        stateoptions={stateOptions}
+                        stateoptions={stateoptions}
                     ></c-address-input>
                 </div>
             </div>
@@ -129,10 +130,10 @@
             </button>
         </footer>
 
-        <template if:true={showSpinner}>
+        <template if:true={showSpinnerLoading}>
             <lightning-spinner
                 class={spinnerClass}
-                alternativetext="Loading"
+                alternative-text="Loading"
                 size="large"
             ></lightning-spinner>
         </template>

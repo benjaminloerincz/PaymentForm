@@ -181,9 +181,9 @@
                 <div class="group-order-cc-container">
                     <c:cardInput
                         class="group-order-cc-container"
-                        oncardComplete="{!c.handleCardComplete}"
-                        oncardIncomplete="{!c.handleCardIncomplete}"
-                        onpaymentMethodChange="{!c.handlePaymentMethodChange}"
+                        oncardcomplete="{!c.handleCardComplete}"
+                        oncardincomplete="{!c.handleCardIncomplete}"
+                        onpaymentmethodchange="{!c.handlePaymentMethodChange}"
                     />
                 </div>
             </div>
