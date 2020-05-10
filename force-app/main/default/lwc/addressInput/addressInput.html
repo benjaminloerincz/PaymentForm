@@ -13,19 +13,19 @@
         <div class="slds-form__row">
             <div class="slds-form__item" role="listitem">
                 <div
-                    class="slds-form-element slds-form-element_horizontal  address-form-label"
+                    class="slds-form-element slds-form-element_horizontal address-form-label"
                 >
                     <label
                         class="slds-form-element__label slds-form-element__legend"
                         >Non US?</label
                     >
                     <lightning-input
-                        class="address-form-label "
+                        class="address-form-label"
                         type="toggle"
                         label=""
                         name="internationalAddress"
-                        message-toggle-active=" "
-                        message-toggle-inactive=" "
+                        message-toggle-active=""
+                        message-toggle-inactive=""
                         onchange={handleInternationalChange}
                         variant="label-hidden"
                         checked={address_.internationalAddress}
@@ -40,7 +40,7 @@
             <div class="slds-form__row">
                 <div class="slds-form__item" role="listitem">
                     <lightning-combobox
-                        class="  address-form-label slds-form-element_horizontal address-required "
+                        class="address-form-label slds-form-element_horizontal address-required"
                         name="country"
                         onchange={handleCountryChange}
                         options={countryOptions}
@@ -57,7 +57,7 @@
 
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class=" address-form-label slds-form-element_horizontal "
+                        class="address-form-label slds-form-element_horizontal"
                         name="state"
                         onchange={handleStateChange}
                         label="State/Province"
@@ -71,7 +71,7 @@
             <div class="slds-form__row">
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class=" address-form-label slds-form-element_horizontal address-required"
+                        class="address-form-label slds-form-element_horizontal address-required"
                         onchange={handleStreetChange}
                         label="Street"
                         value={address_.BillingStreet}
@@ -86,7 +86,7 @@
 
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class=" address-form-label slds-form-element_horizontal  "
+                        class="address-form-label slds-form-element_horizontal"
                         name="street2"
                         onchange={handleStreet2Change}
                         label="Suite #"
@@ -100,7 +100,7 @@
             <div class="slds-form__row">
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class=" address-form-label slds-form-element_horizontal address-required"
+                        class="address-form-label slds-form-element_horizontal address-required"
                         onchange={handleCityChange}
                         label="City"
                         value={address_.BillingCity}
@@ -115,7 +115,7 @@
 
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class=" address-form-label slds-form-element_horizontal "
+                        class="address-form-label slds-form-element_horizontal"
                         onchange={handlePostCodeChange}
                         label="Postal Code"
                         value={address_.BillingPostalCode}
@@ -133,7 +133,7 @@
             <div class="slds-form__row">
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class=" address-form-label slds-form-element_horizontal address-required"
+                        class="address-form-label slds-form-element_horizontal address-required"
                         name="street"
                         onchange={handleStreetChange}
                         label="Street"
@@ -148,7 +148,7 @@
 
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class="  address-form-label slds-form-element_horizontal  "
+                        class="address-form-label slds-form-element_horizontal"
                         name="street2"
                         onchange={handleStreet2Change}
                         label="Suite #"
@@ -162,7 +162,7 @@
             <div class="slds-form__row">
                 <div class="slds-form__item" role="listitem">
                     <lightning-input
-                        class="  address-form-label slds-form-element_horizontal address-required"
+                        class="address-form-label slds-form-element_horizontal address-required"
                         name="city"
                         onchange={handleCityChange}
                         label="City"
@@ -177,7 +177,7 @@
 
                 <div class="slds-form__item" role="listitem">
                     <lightning-combobox
-                        class="  address-form-label slds-form-element_horizontal address-required "
+                        class="address-form-label slds-form-element_horizontal address-required"
                         name="state"
                         onchange={handleStateChange}
                         options={stateOptions}
@@ -196,7 +196,7 @@
             <div class="slds-form__row">
                 <div class="slds-form__item slds-size_1-of-2" role="listitem">
                     <lightning-input
-                        class="  address-form-label slds-form-element_horizontal address-required "
+                        class="address-form-label slds-form-element_horizontal address-required"
                         name="zip"
                         onchange={handlePostCodeChange}
                         label="Zip"

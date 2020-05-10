@@ -75,11 +75,11 @@
     />
     <aura:handler name="render" value="{!this}" action="{!c.onRender}" />
 
-    <div class=" slds-card " style="overflow-x: hidden; min-height:400px; ">
+    <div class="slds-card" style="overflow-x: hidden; min-height:400px;">
         <div class="">
-            <div class="slds-grid  slds-m-top_medium ">
+            <div class="slds-grid slds-var-m-top_medium">
                 <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
-                    <div class="slds-form ">
+                    <div class="slds-form">
                         <lightning:radioGroup
                             name="paymentMethodRadio"
                             label="Pay With"
@@ -87,14 +87,16 @@
                             value="{! v.paymentMethod }"
                             type="button"
                             variant="label-inline"
-                            class="slds-form-element slds-form-element_horizontal slds-form-element_1-col  "
+                            class="slds-form-element slds-form-element_horizontal slds-form-element_1-col"
                         />
 
                         <aura:if isTrue="{! v.paymentMethod eq 'Check'}">
-                            <div class="slds-form__row slds-m-bottom_medium">
+                            <div
+                                class="slds-form__row slds-var-m-bottom_medium"
+                            >
                                 <div class="slds-form__item" role="listitem">
                                     <div
-                                        class="slds-form-element slds-form-element_horizontal slds-form-element_1-col  "
+                                        class="slds-form-element slds-form-element_horizontal slds-form-element_1-col"
                                         id="checkNumberForm"
                                     >
                                         <label
@@ -129,10 +131,12 @@
                         <aura:if
                             isTrue="{! v.paymentMethod eq 'Purchase Order'}"
                         >
-                            <div class="slds-form__row slds-m-bottom_medium">
+                            <div
+                                class="slds-form__row slds-var-m-bottom_medium"
+                            >
                                 <div class="slds-form__item" role="listitem">
                                     <div
-                                        class="slds-form-element slds-form-element_horizontal slds-form-element_1-col slds-is-editing "
+                                        class="slds-form-element slds-form-element_horizontal slds-form-element_1-col slds-is-editing"
                                         id="purchaseOrderForm"
                                     >
                                         <label
@@ -188,8 +192,8 @@
             </div>
 
             <!-- address input  -->
-            <div class="slds-grid slds-wrap ">
-                <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12 ">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
                     <c:addressInput
                         onaddressvalid="{!c.handleAddressValid}"
                         onaddressinvalid="{!c.handleAddressInvalid}"
@@ -201,7 +205,7 @@
         </div>
 
         <footer
-            class="slds-card__footer slds-modal__footer "
+            class="slds-card__footer slds-modal__footer"
             style="text-align:center;"
         >
             <button
