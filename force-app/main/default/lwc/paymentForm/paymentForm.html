@@ -1,0 +1,140 @@
+<template>
+    <div class="slds-card" style="overflow-x: hidden; min-height:400px;">
+        <div class="">
+            <div class="slds-grid slds-var-m-top_medium">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+                    <div class="slds-form">
+                        <lightning-radio-group
+                            name="paymentMethodRadio"
+                            label="Pay With"
+                            options={paymentMethods}
+                            value={paymentMethod}
+                            type="button"
+                            variant="label-inline"
+                            class="slds-form-element slds-form-element_horizontal slds-form-element_1-col"
+                        ></lightning-radio-group>
+
+                        <template if:true={paymentMethodEqualsCheck}>
+                            <div
+                                class="slds-form__row slds-var-m-bottom_medium"
+                            >
+                                <div class="slds-form__item" role="listitem">
+                                    <div
+                                        class="slds-form-element slds-form-element_horizontal slds-form-element_1-col"
+                                        id="checkNumberForm"
+                                    >
+                                        <label
+                                            class="slds-form-element__label"
+                                            for="checkNumber"
+                                        >
+                                            <abbr
+                                                class="slds-required"
+                                                title="required"
+                                                >*</abbr
+                                            >
+                                            Check Number
+                                        </label>
+                                        <div class="slds-form-element__control">
+                                            <input placeholder="Enter check number" value={checkNumber} type="text" name="checkNumber" class="slds-input" id="checkNumberInput" onchange={handleCheckChange} oninput={handleCheckChange}>{checkNumber}</input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template if:true={paymentMethodEqualsPurchaseOrder}>
+                            <div
+                                class="slds-form__row slds-var-m-bottom_medium"
+                            >
+                                <div class="slds-form__item" role="listitem">
+                                    <div
+                                        class="slds-form-element slds-form-element_horizontal slds-form-element_1-col slds-is-editing"
+                                        id="purchaseOrderForm"
+                                    >
+                                        <label
+                                            class="slds-form-element__label"
+                                            for="purchaseOrder"
+                                        >
+                                            <abbr
+                                                class="slds-required"
+                                                title="required"
+                                                >*</abbr
+                                            >
+                                            Purchase Order
+                                        </label>
+                                        <div class="slds-form-element__control">
+                                            <input
+                                                placeholder="Enter purchase order number"
+                                                value={poNumber}
+                                                type="text"
+                                                name="purchaseOrder"
+                                                class="slds-input"
+                                                id="purchaseOrderInput"
+                                                onchange={handlePOChange}
+                                                oninput={handlePOChange}
+                                                >{poNumber}</input
+                                            >
+                                            <div
+                                                class="slds-form-element__help slds-hide"
+                                                id="purchaseOrderError"
+                                                >Please enter a purchase
+                                                order</div
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card input -->
+            <div
+                style={cardInputStyle}
+            >
+                <div class="group-order-cc-container">
+                    <c-card-input
+                        class="group-order-cc-container"
+                        oncardcomplete={handleCardComplete}
+                        oncardincomplete={handleCardIncomplete}
+                        onpaymentmethodchange={handlePaymentMethodChange}
+                    ></c-card-input>
+                </div>
+            </div>
+
+            <!-- address input  -->
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_8-of-12">
+                    <c-address-input
+                        onaddressvalid={handleAddressValid}
+                        onaddressinvalid={handleAddressInvalid}
+                        address={newAccount}
+                        stateoptions={stateOptions}
+                    ></c-address-input>
+                </div>
+            </div>
+        </div>
+
+        <footer
+            class="slds-card__footer slds-modal__footer"
+            style="text-align:center;"
+        >
+            <button
+                class="slds-button slds-button_brand"
+                onclick={handleNextClick}
+                disabled={buttonDisabled}
+            >
+                Submit Payment
+            </button>
+        </footer>
+
+        <template if:true={showSpinner}>
+            <lightning-spinner
+                class={spinnerClass}
+                alternativetext="Loading"
+                size="large"
+            ></lightning-spinner>
+        </template>
+    </div>
+</template>
