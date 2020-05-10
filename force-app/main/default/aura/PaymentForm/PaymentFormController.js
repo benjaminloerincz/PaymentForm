@@ -14,8 +14,6 @@
         );
     },
 
-    noOp: function(component, event, helper) {},
-
     onRender: function(component, event, helper) {
         //run once
         if (component.get('v.rendered') == false) {
