@@ -11,7 +11,7 @@ Note, the containing app is an AURA app, which the individual CC and Address inp
 I haven't been bothered converting the containing app or component to Aura, but it should be pretty easy really.
 
 # How it looks:
+
 [![payment gif][1]][1]
 
 [1]: https://media.giphy.com/media/ifMS0C6OgaOOsTm4Wg/giphy.gif
-
